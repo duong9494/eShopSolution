@@ -1,6 +1,4 @@
-﻿using eShopSolution.Appplication.Catalog.Products.Dtos;
-using eShopSolution.Appplication.Catalog.Products.Dtos.Public;
-using eShopSolution.Appplication.Dtos;
+﻿
 using eShopSolution.Data.EF;
 using System;
 using System.Collections.Generic;
@@ -8,6 +6,9 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using eShopSolution.ViewModels.Common;
+using eShopSolution.ViewModels.Catalog.Products;
+using eShopSolution.ViewModels.Catalog.Products.Public;
 
 namespace eShopSolution.Appplication.Catalog.Products
 {
@@ -60,6 +61,11 @@ namespace eShopSolution.Appplication.Catalog.Products
                 Items = data
             };
             return pagedResult;
+        }
+
+        public Task<PagedResult<ProductViewModel>> GetAllByCategoryId(ViewModels.Catalog.Products.Manage.GetProductPagingRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
