@@ -16,7 +16,7 @@ namespace eShopSolution.Appplication.Catalog.Products
         private readonly EShopDbContext _context;
         public PublicProductService(EShopDbContext context)
         {
-            _context = context;
+            _context = context; 
         }
 
         public async Task<List<ProductViewModel>> GetAll()
