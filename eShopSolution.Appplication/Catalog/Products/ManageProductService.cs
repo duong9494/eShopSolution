@@ -4,7 +4,6 @@ using eShopSolution.Data.EF;
 using eShopSolution.Data.Entities;
 using eShopSolution.Utilities.Exceptions;
 using eShopSolution.ViewModels.Catalog.Products;
-using eShopSolution.ViewModels.Catalog.Products.Manage;
 using eShopSolution.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -98,7 +97,7 @@ namespace eShopSolution.Appplication.Catalog.Products
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. select join
             var query = from p in _context.Products
@@ -143,6 +142,16 @@ namespace eShopSolution.Appplication.Catalog.Products
                 Items = data
             };
             return pagedResult;
+        }
+
+        public Task<PagedResult<ProductViewModel>> GetAllPaging(GetPublicProductPagingRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<ProductImageViewModel>> GetListImage(int productId)
+        {
+            throw new NotImplementedException();
         }
 
         public Task<int> RemoveImages(int imageId)
